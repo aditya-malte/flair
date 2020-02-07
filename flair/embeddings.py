@@ -412,7 +412,7 @@ class FastTextEmbeddings(TokenEmbeddings):
 
         self.static_embeddings = True
 
-        self.precomputed_word_embeddings = gensim.models.FastText.load_fasttext_format(
+        self.precomputed_word_embeddings = gensim.models.FastText.load(
             str(embeddings)
         )
 
