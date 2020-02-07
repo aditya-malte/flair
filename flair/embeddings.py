@@ -414,7 +414,7 @@ class FastTextEmbeddings(TokenEmbeddings):
 
         self.precomputed_word_embeddings = gensim.models.FastText.load(
             str(embeddings)
-        )
+        ).wv
 
         self.__embedding_length: int = self.precomputed_word_embeddings.vector_size
 
