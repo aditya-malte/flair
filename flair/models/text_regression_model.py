@@ -66,7 +66,7 @@ class TextRegressor(flair.models.TextClassifier):
                 scores = self.forward(batch)
 
                 for (sentence, score) in zip(batch, scores.tolist()):
-                    sentence.labels = [Label(value=str(score[0]))]
+                    sentence.set_label("reg_output", value=str(score[0])) #sentence.set_label(value=str(score[0])
 
                 # clearing token embeddings to save memory
                 store_embeddings(batch, storage_mode=embedding_storage_mode)
