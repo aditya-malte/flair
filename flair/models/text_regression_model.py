@@ -64,14 +64,14 @@ class TextRegressor(flair.models.TextClassifier):
 
             for batch in batches:
                 scores = self.forward(batch)
-
+                """
                 for (sentence, score) in zip(batch, scores.tolist()):
                     sentence.labels = [Label(value=str(score[0]))]
 
                 # clearing token embeddings to save memory
                 store_embeddings(batch, storage_mode=embedding_storage_mode)
-
-            return sentences
+                """
+            return scores.tolist()
 
     def _calculate_loss(
         self, scores: torch.tensor, sentences: List[Sentence]
